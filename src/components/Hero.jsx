@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import SafeImage from './SafeImage'
 
 export default function Hero() {
   const ref = useRef(null)
@@ -53,7 +54,7 @@ export default function Hero() {
             <div className="mt-10 flex items-center gap-6 text-sm text-gray-600">
               <div className="flex -space-x-2">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <img key={i} src={`https://i.pravatar.cc/64?img=${i+10}`} alt="customer" className="h-8 w-8 rounded-full ring-2 ring-white" />
+                  <SafeImage key={i} src={`https://i.pravatar.cc/64?img=${i+10}`} alt="customer" className="h-8 w-8 rounded-full ring-2 ring-white" width={64} height={64} />
                 ))}
               </div>
               <p><span className="font-semibold text-gray-900">2,500+</span> happy customers this month</p>
@@ -70,7 +71,7 @@ export default function Hero() {
             >
               <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-tr from-amber-500 to-red-500 blur-2xl opacity-30" />
               <div className="relative rounded-[2rem] bg-white/80 backdrop-blur border border-white/50 p-4 shadow-xl">
-                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1600&auto=format&fit=crop" alt="Burger" className="rounded-2xl" />
+                <SafeImage src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1600&auto=format&fit=crop" alt="Burger" className="rounded-2xl" width={1200} height={900} />
                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-xl shadow-lg text-sm">
                   Smash Classic • R79
                 </div>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import SafeImage from './SafeImage'
 
 const images = [
   'https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=1600&auto=format&fit=crop',
@@ -30,7 +31,13 @@ export default function Gallery() {
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className={`relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow ${i % 3 === 0 ? 'md:row-span-2' : ''}`}
             >
-              <img src={src} alt="Lekker Eet gallery" className="h-full w-full object-cover aspect-[4/3] md:aspect-auto" />
+              <SafeImage
+                src={src}
+                alt="Lekker Eet gallery"
+                className="h-full w-full object-cover aspect-[4/3] md:aspect-auto"
+                width={1200}
+                height={900}
+              />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"/>
             </motion.div>
           ))}

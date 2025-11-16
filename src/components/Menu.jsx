@@ -1,4 +1,5 @@
 import { BadgeCheck } from 'lucide-react'
+import SafeImage from './SafeImage'
 
 const burgers = [
   {
@@ -41,10 +42,12 @@ export default function Menu() {
           {burgers.map((b) => (
             <a key={b.name} href="#order" className="group rounded-2xl overflow-hidden border border-gray-200 bg-white shadow focus:outline-none focus:ring-2 focus:ring-amber-500/40">
               <div className="overflow-hidden">
-                <img
-                  src={`https://source.unsplash.com/600x400/?burger&sig=${b.name}`}
+                <SafeImage
+                  src={`https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop&sig=${encodeURIComponent(b.name)}`}
                   alt={b.name}
                   className="h-40 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  width={1200}
+                  height={800}
                 />
               </div>
               <div className="p-5">

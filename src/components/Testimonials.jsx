@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
+import SafeImage from './SafeImage'
 
 const testimonials = [
   {
@@ -44,7 +45,7 @@ export default function Testimonials() {
               className="relative rounded-2xl border border-gray-200 bg-white/80 backdrop-blur p-6 shadow hover:shadow-md transition"
             >
               <div className="flex items-center gap-4">
-                <img src={t.avatar} alt={t.name} className="h-12 w-12 rounded-full ring-2 ring-white" />
+                <SafeImage src={t.avatar} alt={t.name} className="h-12 w-12 rounded-full ring-2 ring-white" width={96} height={96} />
                 <div>
                   <p className="font-semibold text-gray-900">{t.name}</p>
                   <div className="flex items-center gap-1">

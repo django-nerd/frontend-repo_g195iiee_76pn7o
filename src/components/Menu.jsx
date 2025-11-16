@@ -59,7 +59,7 @@ export default function Menu() {
                   <SafeImage
                     src={b.imgUrl}
                     alt={b.name}
-                    className="h-40 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    className="w-full h-auto object-contain block bg-white"
                     width={1200}
                     height={800}
                   />

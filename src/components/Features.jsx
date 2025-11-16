@@ -46,7 +46,7 @@ export default function Features() {
                 <SafeImage
                   src={imgUrl}
                   alt={alt}
-                  className="w-full h-40 object-cover"
+                  className="w-full h-auto object-contain block"
                   width={800}
                   height={400}
                 />

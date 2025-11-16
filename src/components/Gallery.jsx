@@ -32,11 +32,11 @@ export default function Gallery() {
                 <SafeImage
                   src={src}
                   alt="Lekker Eet gallery"
-                  className="h-full w-full object-cover aspect-[4/3] md:aspect-auto"
+                  className="w-full h-auto object-contain block bg-white"
                   width={1200}
                   height={900}
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"/>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"/>
               </div>
             </StaggerItem>
           ))}

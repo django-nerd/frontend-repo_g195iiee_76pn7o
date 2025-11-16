@@ -7,25 +7,29 @@ const burgers = [
     name: 'Smash Classic',
     price: 'R79',
     desc: 'Double smash patty, cheddar, pickles, onion, house sauce.',
-    imgQuery: 'smash-burger'
+    imgUrl:
+      'https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop'
   },
   {
     name: 'Big Lekker',
     price: 'R109',
     desc: 'Two patties, caramelized onions, crispy bacon, cheesy melt.',
-    imgQuery: 'bacon-burger'
+    imgUrl:
+      'https://images.unsplash.com/photo-1551782450-17144c3a95f7?q=80&w=1200&auto=format&fit=crop'
   },
   {
     name: 'Chilli Cheez',
     price: 'R95',
     desc: 'Jalapeños, pepperjack, hot honey, chipotle mayo heat.',
-    imgQuery: 'spicy-burger,jalapeno'
+    imgUrl:
+      'https://images.unsplash.com/photo-1606756790138-261d2b21cd75?q=80&w=1200&auto=format&fit=crop'
   },
   {
     name: 'Green Garden',
     price: 'R89',
     desc: 'Crispy chickpea patty, avo, greens, herby yogurt.',
-    imgQuery: 'veggie-burger,vegetarian'
+    imgUrl:
+      'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop'
   }
 ]
 
@@ -53,7 +57,7 @@ export default function Menu() {
               <a href="#order" className="group rounded-2xl overflow-hidden border border-gray-200 bg-white shadow focus:outline-none focus:ring-2 focus:ring-amber-500/40">
                 <div className="overflow-hidden">
                   <SafeImage
-                    src={`https://source.unsplash.com/1200x800/?${encodeURIComponent(b.imgQuery)}`}
+                    src={b.imgUrl}
                     alt={b.name}
                     className="h-40 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                     width={1200}

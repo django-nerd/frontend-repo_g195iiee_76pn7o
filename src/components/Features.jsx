@@ -43,13 +43,15 @@ export default function Features() {
           {items.map(({ title, desc, imgUrl, alt }, i) => (
             <StaggerItem key={title} direction={i % 2 === 0 ? 'left' : 'right'} distance={28} y={0} duration={0.5}>
               <div className="rounded-2xl border border-gray-200 bg-white/70 backdrop-blur overflow-hidden shadow hover:shadow-md transition">
-                <SafeImage
-                  src={imgUrl}
-                  alt={alt}
-                  className="w-full h-auto object-contain block"
-                  width={800}
-                  height={400}
-                />
+                <div className="relative bg-white flex items-center justify-center h-48 sm:h-56 lg:h-60">
+                  <SafeImage
+                    src={imgUrl}
+                    alt={alt}
+                    className="max-h-full max-w-full object-contain block"
+                    width={800}
+                    height={400}
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
                   <p className="mt-2 text-sm text-gray-600">{desc}</p>

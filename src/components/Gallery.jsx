@@ -29,13 +29,15 @@ export default function Gallery() {
               <div
                 className={`relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow ${i % 3 === 0 ? 'md:row-span-2' : ''}`}
               >
-                <SafeImage
-                  src={src}
-                  alt="Lekker Eet gallery"
-                  className="w-full h-auto object-contain block bg-white"
-                  width={1200}
-                  height={900}
-                />
+                <div className={`relative bg-white flex items-center justify-center ${i % 3 === 0 ? 'h-80 md:h-full md:min-h-[16rem]' : 'h-44 sm:h-52 md:h-56'}`}>
+                  <SafeImage
+                    src={src}
+                    alt="Lekker Eet gallery"
+                    className="max-h-full max-w-full object-contain block"
+                    width={1200}
+                    height={900}
+                  />
+                </div>
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"/>
               </div>
             </StaggerItem>

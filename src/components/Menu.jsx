@@ -55,11 +55,11 @@ export default function Menu() {
           {burgers.map((b, i) => (
             <StaggerItem key={b.name} direction={i % 2 === 0 ? 'left' : 'right'} distance={26} y={0}>
               <a href="#order" className="group rounded-2xl overflow-hidden border border-gray-200 bg-white shadow focus:outline-none focus:ring-2 focus:ring-amber-500/40">
-                <div className="overflow-hidden">
+                <div className="relative bg-white flex items-center justify-center h-52">
                   <SafeImage
                     src={b.imgUrl}
                     alt={b.name}
-                    className="w-full h-auto object-contain block bg-white"
+                    className="max-h-full max-w-full object-contain block"
                     width={1200}
                     height={800}
                   />

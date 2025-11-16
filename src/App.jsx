@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import Features from './components/Features'
 import Menu from './components/Menu'
 import Gallery from './components/Gallery'
+import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Features />
         <Menu />
         <Gallery />
+        <Testimonials />
         <CTA />
         <footer id="contact" className="py-12 border-t border-gray-200/70">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

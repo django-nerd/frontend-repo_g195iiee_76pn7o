@@ -1,12 +1,24 @@
-import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 export default function Hero() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
+
+  // Parallax transforms
+  const yBg1 = useTransform(scrollYProgress, [0, 1], [0, -120])
+  const yBg2 = useTransform(scrollYProgress, [0, 1], [0, 100])
+  const yCard = useTransform(scrollYProgress, [0, 1], [0, -60])
+
+  useEffect(() => {
+    // noop to ensure hook runs in browser only
+  }, [])
+
   return (
-    <section className="relative overflow-hidden pt-36 pb-20">
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 -right-32 h-96 w-96 rounded-full bg-amber-400/30 blur-3xl" />
-        <div className="absolute -bottom-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-red-500/20 blur-3xl" />
-      </div>
+    <section ref={ref} className="relative overflow-hidden pt-36 pb-20">
+      {/* Parallax glow blobs */}
+      <motion.div style={{ y: yBg1 }} className="pointer-events-none absolute -top-40 -right-32 h-96 w-96 rounded-full bg-amber-400/30 blur-3xl -z-10" />
+      <motion.div style={{ y: yBg2 }} className="pointer-events-none absolute -bottom-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-red-500/20 blur-3xl -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
@@ -50,6 +62,7 @@ export default function Hero() {
 
           <div className="relative">
             <motion.div
+              style={{ y: yCard }}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}

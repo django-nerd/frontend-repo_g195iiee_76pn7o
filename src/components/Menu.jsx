@@ -39,17 +39,23 @@ export default function Menu() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {burgers.map((b) => (
-            <div key={b.name} className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow">
-              <img src={`https://source.unsplash.com/600x400/?burger&sig=${b.name}`} alt={b.name} className="h-40 w-full object-cover" />
+            <a key={b.name} href="#order" className="group rounded-2xl overflow-hidden border border-gray-200 bg-white shadow focus:outline-none focus:ring-2 focus:ring-amber-500/40">
+              <div className="overflow-hidden">
+                <img
+                  src={`https://source.unsplash.com/600x400/?burger&sig=${b.name}`}
+                  alt={b.name}
+                  className="h-40 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+              </div>
               <div className="p-5">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-gray-900">{b.name}</h3>
                   <span className="font-bold text-amber-700">{b.price}</span>
                 </div>
                 <p className="mt-2 text-sm text-gray-600">{b.desc}</p>
-                <a href="#order" className="mt-4 inline-flex w-full justify-center rounded-xl bg-gray-900 text-white py-2 hover:bg-black">Add to Order</a>
+                <span className="mt-4 inline-flex w-full justify-center rounded-xl bg-gray-900 text-white py-2 group-hover:bg-black transition-colors">Add to Order</span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

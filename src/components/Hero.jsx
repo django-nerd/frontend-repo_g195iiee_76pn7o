@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { Reveal } from './Reveal'
 import SafeImage from './SafeImage'
 
 export default function Hero() {
@@ -24,48 +25,42 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900"
-            >
-              Bite into joy at
-              <span className="block bg-gradient-to-r from-amber-600 to-red-600 bg-clip-text text-transparent"> Lekker Eet</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-6 text-lg text-gray-700 max-w-xl"
-            >
-              Flame-grilled burgers, hand-cut fries, and sauces that slap. Freshly made, locally loved, and always lekker.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mt-8 flex items-center gap-4"
-            >
-              <a href="#order" className="inline-flex bg-gradient-to-r from-amber-500 to-red-500 text-white font-semibold px-6 py-3 rounded-xl shadow hover:shadow-lg transition">Order Now</a>
-              <a href="#menu" className="inline-flex px-6 py-3 rounded-xl border border-gray-300 text-gray-800 bg-white hover:bg-gray-50">View Menu</a>
-            </motion.div>
-
-            <div className="mt-10 flex items-center gap-6 text-sm text-gray-600">
-              <div className="flex -space-x-2">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <SafeImage key={i} src={`https://i.pravatar.cc/64?img=${i+10}`} alt="customer" className="h-8 w-8 rounded-full ring-2 ring-white" width={64} height={64} />
-                ))}
+            <Reveal y={20} duration={0.6}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900">
+                Bite into joy at
+                <span className="block bg-gradient-to-r from-amber-600 to-red-600 bg-clip-text text-transparent"> Lekker Eet</span>
+              </h1>
+            </Reveal>
+            <Reveal y={20} delay={0.1} duration={0.7}>
+              <p className="mt-6 text-lg text-gray-700 max-w-xl">
+                Flame-grilled burgers, hand-cut fries, and sauces that slap. Freshly made, locally loved, and always lekker.
+              </p>
+            </Reveal>
+            <Reveal y={20} delay={0.2} duration={0.8}>
+              <div className="mt-8 flex items-center gap-4">
+                <a href="#order" className="inline-flex bg-gradient-to-r from-amber-500 to-red-500 text-white font-semibold px-6 py-3 rounded-xl shadow hover:shadow-lg transition">Order Now</a>
+                <a href="#menu" className="inline-flex px-6 py-3 rounded-xl border border-gray-300 text-gray-800 bg-white hover:bg-gray-50">View Menu</a>
               </div>
-              <p><span className="font-semibold text-gray-900">2,500+</span> happy customers this month</p>
-            </div>
+            </Reveal>
+
+            <Reveal y={16} delay={0.25}>
+              <div className="mt-10 flex items-center gap-6 text-sm text-gray-600">
+                <div className="flex -space-x-2">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <SafeImage key={i} src={`https://i.pravatar.cc/64?img=${i+10}`} alt="customer" className="h-8 w-8 rounded-full ring-2 ring-white" width={64} height={64} />
+                  ))}
+                </div>
+                <p><span className="font-semibold text-gray-900">2,500+</span> happy customers this month</p>
+              </div>
+            </Reveal>
           </div>
 
           <div className="relative">
             <motion.div
               style={{ y: yCard }}
               initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="relative mx-auto w-full max-w-lg"
             >

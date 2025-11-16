@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { StaggerContainer, StaggerItem, Reveal } from './Reveal'
 import SafeImage from './SafeImage'
 
 const images = [
@@ -15,33 +15,32 @@ export default function Gallery() {
     <section id="gallery" className="py-20 bg-gradient-to-b from-amber-50/40 to-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-8">
-          <div>
-            <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">A taste of the vibe</h2>
-            <p className="text-gray-600 mt-2">Sizzles, stacks, and saucy drips — straight from our grill.</p>
-          </div>
+          <Reveal y={14}>
+            <div>
+              <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">A taste of the vibe</h2>
+              <p className="text-gray-600 mt-2">Sizzles, stacks, and saucy drips — straight from our grill.</p>
+            </div>
+          </Reveal>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-4" stagger={0.05}>
           {images.map((src, i) => (
-            <motion.div
-              key={src}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-20% 0px' }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className={`relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow ${i % 3 === 0 ? 'md:row-span-2' : ''}`}
-            >
-              <SafeImage
-                src={src}
-                alt="Lekker Eet gallery"
-                className="h-full w-full object-cover aspect-[4/3] md:aspect-auto"
-                width={1200}
-                height={900}
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"/>
-            </motion.div>
+            <StaggerItem key={src} y={12} duration={0.45}>
+              <div
+                className={`relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow ${i % 3 === 0 ? 'md:row-span-2' : ''}`}
+              >
+                <SafeImage
+                  src={src}
+                  alt="Lekker Eet gallery"
+                  className="h-full w-full object-cover aspect-[4/3] md:aspect-auto"
+                  width={1200}
+                  height={900}
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"/>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   )

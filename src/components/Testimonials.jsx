@@ -37,8 +37,8 @@ export default function Testimonials() {
         </div>
 
         <StaggerContainer className="grid md:grid-cols-3 gap-6" stagger={0.06}>
-          {testimonials.map((t) => (
-            <StaggerItem key={t.name} y={14} duration={0.45}>
+          {testimonials.map((t, i) => (
+            <StaggerItem key={t.name} direction={i % 2 === 0 ? 'up' : 'down'} distance={24} x={0} duration={0.45}>
               <div className="relative rounded-2xl border border-gray-200 bg-white/80 backdrop-blur p-6 shadow hover:shadow-md transition">
                 <div className="flex items-center gap-4">
                   <SafeImage src={t.avatar} alt={t.name} className="h-12 w-12 rounded-full ring-2 ring-white" width={96} height={96} />

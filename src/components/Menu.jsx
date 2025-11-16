@@ -44,8 +44,8 @@ export default function Menu() {
         </div>
 
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" stagger={0.06}>
-          {burgers.map((b) => (
-            <StaggerItem key={b.name}>
+          {burgers.map((b, i) => (
+            <StaggerItem key={b.name} direction={i % 2 === 0 ? 'left' : 'right'} distance={26} y={0}>
               <a href="#order" className="group rounded-2xl overflow-hidden border border-gray-200 bg-white shadow focus:outline-none focus:ring-2 focus:ring-amber-500/40">
                 <div className="overflow-hidden">
                   <SafeImage

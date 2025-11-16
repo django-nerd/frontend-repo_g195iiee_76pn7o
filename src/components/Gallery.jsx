@@ -25,7 +25,7 @@ export default function Gallery() {
 
         <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-4" stagger={0.05}>
           {images.map((src, i) => (
-            <StaggerItem key={src} y={12} duration={0.45}>
+            <StaggerItem key={src} direction={i % 2 === 0 ? 'up' : 'down'} distance={20} x={0} duration={0.45}>
               <div
                 className={`relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow ${i % 3 === 0 ? 'md:row-span-2' : ''}`}
               >

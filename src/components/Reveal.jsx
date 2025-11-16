@@ -4,6 +4,7 @@ function Reveal({
   as: Tag = 'div',
   children,
   delay = 0,
+  x = 0,
   y = 16,
   opacity = 0,
   duration = 0.5,
@@ -11,10 +12,11 @@ function Reveal({
   className = '',
   ...rest
 }) {
+  const initial = { opacity, x, y }
   return (
     <motion.div
-      initial={{ opacity, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={initial}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once, margin: '-10% 0px' }}
       transition={{ duration, delay, ease: 'easeOut' }}
       className={className}
@@ -57,10 +59,27 @@ function StaggerContainer({
   )
 }
 
-function StaggerItem({ children, y = 14, opacity = 0, duration = 0.45, className = '', ...rest }) {
+function StaggerItem({
+  children,
+  x = 0,
+  y = 14,
+  direction, // 'left' | 'right' | 'up' | 'down'
+  distance = 24,
+  opacity = 0,
+  duration = 0.45,
+  className = '',
+  ...rest
+}) {
+  let xOffset = x
+  let yOffset = y
+  if (direction === 'left') xOffset = -Math.abs(distance)
+  if (direction === 'right') xOffset = Math.abs(distance)
+  if (direction === 'up') yOffset = -Math.abs(distance)
+  if (direction === 'down') yOffset = Math.abs(distance)
+
   const variants = {
-    hidden: { opacity, y },
-    show: { opacity: 1, y: 0, transition: { duration, ease: 'easeOut' } },
+    hidden: { opacity, x: xOffset, y: yOffset },
+    show: { opacity: 1, x: 0, y: 0, transition: { duration, ease: 'easeOut' } },
   }
   return (
     <motion.div variants={variants} className={className} {...rest}>

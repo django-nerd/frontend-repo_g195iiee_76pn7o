@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export default function Reveal({
+function Reveal({
   as: Tag = 'div',
   children,
   delay = 0,
@@ -25,7 +25,7 @@ export default function Reveal({
   )
 }
 
-export function StaggerContainer({
+function StaggerContainer({
   children,
   stagger = 0.08,
   delayChildren = 0,
@@ -57,7 +57,7 @@ export function StaggerContainer({
   )
 }
 
-export function StaggerItem({ children, y = 14, opacity = 0, duration = 0.45, className = '', ...rest }) {
+function StaggerItem({ children, y = 14, opacity = 0, duration = 0.45, className = '', ...rest }) {
   const variants = {
     hidden: { opacity, y },
     show: { opacity: 1, y: 0, transition: { duration, ease: 'easeOut' } },
@@ -68,3 +68,6 @@ export function StaggerItem({ children, y = 14, opacity = 0, duration = 0.45, cl
     </motion.div>
   )
 }
+
+export default Reveal
+export { Reveal, StaggerContainer, StaggerItem }

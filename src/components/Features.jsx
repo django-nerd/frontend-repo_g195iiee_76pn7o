@@ -1,10 +1,10 @@
-import { Flame, Sandwich, FrenchFries, Leaf } from 'lucide-react'
+import { Flame, Star, UtensilsCrossed, Leaf } from 'lucide-react'
 
 export default function Features() {
   const items = [
     { icon: Flame, title: 'Flame-Grilled', desc: 'Smoky, juicy, and seared to perfection on open flames.' },
-    { icon: Sandwich, title: 'Signature Stacks', desc: 'From Smash Classic to Big Lekker — stacked and saucy.' },
-    { icon: FrenchFries, title: 'Hand-Cut Fries', desc: 'Crispy-golden fries with house seasoning and dips.' },
+    { icon: Star, title: 'Signature Stacks', desc: 'From Smash Classic to Big Lekker — stacked and saucy.' },
+    { icon: UtensilsCrossed, title: 'Hand-Cut Fries', desc: 'Crispy-golden fries with house seasoning and dips.' },
     { icon: Leaf, title: 'Fresh & Local', desc: 'Locally sourced produce and daily baked buns.' },
   ]
 
